@@ -20,8 +20,16 @@ public class CreditDataController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<CreditDatum> Get()
+    public IEnumerable<CreditDatum> Get([FromQuery] long? applicationId, [FromQuery] string? source, [FromQuery] string? bureau)
     {
-        return _creditDataService.CreditData.Value;
+        var result = _creditDataService.CreditData.Value.AsEnumerable();
+        if (applicationId != null)
+            result = result.Where(d => applicationId.Value == d.ApplicationId);
+        if (source != null)
+            result = result.Where(d => string.Equals(source, d.Source, StringComparison.OrdinalIgnoreCase));
+        if (bureau != null)
+            result = result.Where(d => string.Equals(bureau, d.Bureau, StringComparison.OrdinalIgnoreCase));
+
+        return result;
     }
 }
