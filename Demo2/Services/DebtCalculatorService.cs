@@ -33,7 +33,7 @@ namespace Demo2.Services
             {
                 UnsecuredTradelineCount = unsecuredTradelines.Count,
                 UnsecuredDebtBalance = (decimal)unsecuredTradelines.Sum(tl => tl.Balance),
-                DebtToIncomeRatio = (decimal)tradelines.Where(tl => !tl.IsMortgage).Sum(tl => tl.MonthlyPayment) / annualIncome / 12,
+                DebtToIncomeRatio = (decimal)tradelines.Where(tl => !tl.IsMortgage).Sum(tl => tl.MonthlyPayment) / (annualIncome / 12),
             };
         }
     }
