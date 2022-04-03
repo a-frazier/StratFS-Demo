@@ -2,7 +2,7 @@
 
 namespace Demo1.Services
 {
-    internal class CreditDataService
+    public class CreditDataService
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private const string dataSourceUrl = "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/creditData.json";

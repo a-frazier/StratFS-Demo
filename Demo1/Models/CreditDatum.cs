@@ -1,6 +1,6 @@
 ﻿namespace Demo1.Models
 {
-    internal class CreditDatum
+    public class CreditDatum
     {
         public long ApplicationId { get; set; }
         public string CustomerName { get; set; } = string.Empty;
