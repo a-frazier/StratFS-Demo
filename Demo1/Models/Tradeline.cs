@@ -1,6 +1,6 @@
 ﻿namespace Demo1.Models
 {
-    public class Tradeline
+    internal class Tradeline
     {
         public long TradelineId { get; set; }
         public string AccountNumber { get; set; } = string.Empty;
