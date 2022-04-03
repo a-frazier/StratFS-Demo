@@ -5,13 +5,13 @@ namespace Demo2.Services
     public class DebtCalculatorService
     {
         private readonly ILogger<DebtCalculatorService> _logger;
-        private readonly Demo1 _demo1;
+        private readonly IDemo1 _demo1;
 
         private const string ABC = nameof(ABC);
         private const string EFX = nameof(EFX);
         private const string UNSECURED = nameof(UNSECURED);
 
-        public DebtCalculatorService(ILogger<DebtCalculatorService> logger, Demo1 demo1)
+        public DebtCalculatorService(ILogger<DebtCalculatorService> logger, IDemo1 demo1)
         {
             _logger = logger;
             _demo1 = demo1;

@@ -4,8 +4,8 @@ using RemoteService;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddHttpClient();
-builder.Services.AddScoped<Demo1>(sp => new Demo1("https://localhost:7072", sp.GetRequiredService<IHttpClientFactory>().CreateClient()));
+builder.Services.AddScoped<IDemo1, Demo1>();
+builder.Services.AddHttpClient<IDemo1, Demo1>((provider, client) => { client.BaseAddress = new Uri("https://localhost:7072/"); });
 builder.Services.AddScoped<DebtCalculatorService>();
 
 builder.Services.AddControllers();

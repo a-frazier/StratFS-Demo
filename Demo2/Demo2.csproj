@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="RemoteService" ClassName="Demo1">
+      <Options>/UseBaseUrl:false /GenerateClientInterfaces:true</Options>
       <SourceUri>https://localhost:7072/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>
